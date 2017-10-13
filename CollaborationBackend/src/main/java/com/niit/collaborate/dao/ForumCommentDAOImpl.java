@@ -23,7 +23,6 @@ public class ForumCommentDAOImpl implements ForumCommentDAO
 	}
 	
 	@Transactional
-	@Override
 	public boolean createForumComment(ForumComment forumComment) {
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(forumComment);
@@ -37,7 +36,6 @@ public class ForumCommentDAOImpl implements ForumCommentDAO
 	}
 
 	@Transactional
-	@Override
 	public boolean approveForumComment(ForumComment forumComment) {
 		try {
 			
@@ -53,7 +51,6 @@ public class ForumCommentDAOImpl implements ForumCommentDAO
 	}
 
 	@Transactional
-	@Override
 	public boolean deleteForumComment(int ID) {
 		try {
 			Session session=sessionFactory.openSession();
@@ -70,19 +67,16 @@ public class ForumCommentDAOImpl implements ForumCommentDAO
 		}
 	}
 
-	@Override
 	public boolean editForumComment(int ID) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public ForumComment getForumComment(int ID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<ForumComment> getForumComments() {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from ForumComment where status = 'A'");

@@ -1,9 +1,8 @@
 package com.niit.collaborate.dao;
+
 import com.niit.collaborate.model.User;
 
 public interface UserDAO {
-
-	
 
 	boolean isUsernameValid(String username);
 

@@ -24,8 +24,7 @@ public class BlogDAOImpl implements BlogDAO
 	}
 	
 	@Transactional
-@Override
-	public boolean createBlog(Blog blog)
+public boolean createBlog(Blog blog)
 	{
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(blog);
@@ -40,8 +39,7 @@ public class BlogDAOImpl implements BlogDAO
 	}
 
 	@Transactional
-@Override
-	public boolean approveBlog(Blog blog)
+public boolean approveBlog(Blog blog)
 	{
 		try {
 			blog.setStatus("A");
@@ -57,7 +55,6 @@ public class BlogDAOImpl implements BlogDAO
 	}
 
 	@Transactional
-	@Override
 	public boolean deleteBlog(int blogId) {
 
 		try {
@@ -75,7 +72,6 @@ public class BlogDAOImpl implements BlogDAO
 		}
 	}
 
-	@Override
 	public boolean editBlog(int blogId) {
 		
 		
@@ -90,8 +86,7 @@ public class BlogDAOImpl implements BlogDAO
 	}
 
 	@Transactional
-@Override
-	public List<Blog> getBlogs() {
+public List<Blog> getBlogs() {
 		
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from Blog where status = 'A'");

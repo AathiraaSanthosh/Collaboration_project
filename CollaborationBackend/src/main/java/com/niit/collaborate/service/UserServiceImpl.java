@@ -1,7 +1,5 @@
 package com.niit.collaborate.service;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,18 +27,15 @@ public class UserServiceImpl implements UserService {
 		return userDAO.isEmailValid(email);
 	}
 
-	@Override
 	public User login(User user) {
 		return userDAO.login(user);
 	}
 
-	@Override
 	public void update(User user) {
 		userDAO.update(user);
 		
 	}
 
-	@Override
 	public User getUserByUsername(String username) {
 		return userDAO.getUserByUsername(username);
 	}

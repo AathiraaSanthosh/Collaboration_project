@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("com.niit")
+@ComponentScan("com.niit.collaborate")
 public class WebResolver extends WebMvcConfigurerAdapter{
 
 	@Bean

@@ -1,4 +1,4 @@
-package com.niit.collaborate.dao;
+package com.niit.collaborate.restcontroller;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.niit.collaborate.dao.JobDAO;
 import com.niit.collaborate.model.Job;
 
 @Repository

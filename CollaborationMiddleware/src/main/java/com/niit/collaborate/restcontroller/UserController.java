@@ -1,4 +1,4 @@
-package com.collaborate.restcontroller;
+package com.niit.collaborate.restcontroller;
 
 
 import javax.servlet.http.HttpSession;

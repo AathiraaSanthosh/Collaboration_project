@@ -23,7 +23,6 @@ public class BlogCommentDAOImpl implements BlogCommentDAO
 	}
 	
 	@Transactional
-	@Override
 	public boolean createBlogComment(BlogComment blogComment) {
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(blogComment);
@@ -37,7 +36,6 @@ public class BlogCommentDAOImpl implements BlogCommentDAO
 	}
 
 	@Transactional
-	@Override
 	public boolean approveBlogComment(BlogComment blogComment) {
 		try {
 		
@@ -53,7 +51,6 @@ public class BlogCommentDAOImpl implements BlogCommentDAO
 	}
 
 	@Transactional
-	@Override
 	public boolean deleteBlogComment(int ID) {
 		try {
 			Session session=sessionFactory.openSession();
@@ -70,20 +67,17 @@ public class BlogCommentDAOImpl implements BlogCommentDAO
 		}
 	}
 
-	@Override
 	public boolean editBlogComment(int ID) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public BlogComment getBlogComment(int ID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Transactional
-	@Override
 	public List<BlogComment> getBlogComments() {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from BlogComment where status = 'A'");
