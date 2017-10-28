@@ -3,76 +3,88 @@ package com.niit.collaborate.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table
+@Table(name = "job")
 public class Job {
-	
+
 	@Id
-	private int JobID;
-	
-	private String JobProfile;
-	
-	private String JobDesc;
-	
-	private String Qualification;
-	
-	private String Status;
-	
-	private Date PostDate;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String jobTitle;
+	private String jobDescription;
+	private String skillsRequired;
+	private String salary;
+	private String location;
+	private String companyname;
+	private Date postedOn;
 
-	public int getJobID() {
-		return JobID;
+	public int getId() {
+		return id;
 	}
 
-	public void setJobID(int jobID) {
-		JobID = jobID;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getJobProfile() {
-		return JobProfile;
+	public String getJobTitle() {
+		return jobTitle;
 	}
 
-	public void setJobProfile(String jobProfile) {
-		JobProfile = jobProfile;
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
 	}
 
-	public String getJobDesc() {
-		return JobDesc;
+	public String getJobDescription() {
+		return jobDescription;
 	}
 
-	public void setJobDesc(String jobDesc) {
-		JobDesc = jobDesc;
+	public void setJobDescription(String jobDescription) {
+		this.jobDescription = jobDescription;
 	}
 
-	public String getQualification() {
-		return Qualification;
+	public String getSkillsRequired() {
+		return skillsRequired;
 	}
 
-	public void setQualification(String qualification) {
-		Qualification = qualification;
+	public void setSkillsRequired(String skillsRequired) {
+		this.skillsRequired = skillsRequired;
 	}
 
-	public String getStatus() {
-		return Status;
+	public String getSalary() {
+		return salary;
 	}
 
-	public void setStatus(String status) {
-		Status = status;
+	public void setSalary(String salary) {
+		this.salary = salary;
 	}
 
-	public Date getPostDate() {
-		return PostDate;
+	public String getLocation() {
+		return location;
 	}
 
-	public void setPostDate(Date postDate) {
-		PostDate = postDate;
+	public void setLocation(String location) {
+		this.location = location;
 	}
-	
-	
-	
+
+	public Date getPostedOn() {
+		return postedOn;
+	}
+
+	public void setPostedOn(Date postedOn) {
+		this.postedOn = postedOn;
+	}
+
+	public String getCompanyname() {
+		return companyname;
+	}
+
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
+	}
 
 }

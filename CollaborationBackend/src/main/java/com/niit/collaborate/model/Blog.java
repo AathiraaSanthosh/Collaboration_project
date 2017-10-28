@@ -1,20 +1,20 @@
 package com.niit.collaborate.model;
 
 import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
-@Table 
-public class Blog 
+@Table(name = "blog")
+public class Blog {
 
-{
 	@Id
 	private int blogId;
-	
-	private String blogName,blogContent,status,Userid;
-	
+
+	private String blogName, blogContent, status, Userid;
+
 	private int likes;
-	
+
 	private Date createDate;
 
 	public int getBlogId() {
@@ -49,7 +49,6 @@ public class Blog
 		this.status = status;
 	}
 
-
 	public String getUserid() {
 		return Userid;
 	}
@@ -73,10 +72,5 @@ public class Blog
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	
-	
-	
-	
-	
-	
+
 }

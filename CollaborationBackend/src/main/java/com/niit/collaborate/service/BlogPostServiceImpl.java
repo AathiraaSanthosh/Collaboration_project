@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.niit.collaborate.dao.BlogPostDAO;
+import com.niit.collaborate.model.BlogComment;
 import com.niit.collaborate.model.BlogPost;
 
 @Service
@@ -24,9 +25,21 @@ public class BlogPostServiceImpl implements BlogPostService {
 	}
 
 	public BlogPost getBlogById(int id) {
-		// TODO Auto-generated method stub
+		
 		return blogPostDAO.getBlogById(id);
 	}
 
-}
+	public void updateBlogPost(BlogPost blogPost) {
+		blogPostDAO.addBlogPost(blogPost);
+		
+	}
 
+	public void addBlogComment(BlogComment blogComment) {
+		blogPostDAO.addBlogComment(blogComment);
+	}
+
+	public List<BlogComment> getBlogComments(int blogPostId) {
+		return  blogPostDAO.getBlogComments(blogPostId);
+	}
+
+}

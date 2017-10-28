@@ -12,8 +12,8 @@ import com.niit.collaborate.model.User;
 
 @Repository
 @Transactional
-public class UserDAOImpl implements UserDAO{
-
+public class UserDAOImpl implements UserDAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -31,7 +31,6 @@ public class UserDAOImpl implements UserDAO{
 		}
 		
 	}
-
 
 	public boolean isUsernameValid(String username) {
 		Session session=sessionFactory.getCurrentSession();
@@ -54,7 +53,6 @@ public class UserDAOImpl implements UserDAO{
 			return false;
 	}
 
-
 	public User login(User user) {
 		Session session = sessionFactory.getCurrentSession();
 		Query query=session.createQuery("from User where username=? and password=?");
@@ -64,7 +62,6 @@ public class UserDAOImpl implements UserDAO{
 		return user;
 	}
 
-
 	public void update(User user) {
 		
 		Session session=sessionFactory.getCurrentSession();
@@ -72,12 +69,21 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 
-
 	public User getUserByUsername(String username) {
 		Session session=sessionFactory.getCurrentSession();
 		User user=(User)session.get(User.class, username);
 		return user;
 	}
-
+	
+	public boolean isUpdatedEmailValid(String email,String username) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from User where email=? and username!=?");
+		query.setString(0, email);
+		query.setString(1, username);
+		User user=(User)query.uniqueResult();
+		if(user==null)
+			return true;
+		else
+			return false;
+	}
 }
-

@@ -1,6 +1,5 @@
 package com.niit.collaborate.restcontroller;
 
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +51,7 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value="/login",method=RequestMethod.POST)
+	@RequestMapping(value="/login",method=RequestMethod.POST) // each user unique session object will get created
 	public ResponseEntity<?> login(@RequestBody User user,HttpSession session)
 	{
 		User validUser=userService.login(user);
@@ -74,11 +73,12 @@ public class UserController {
 		}
 		System.out.println("Online status after update" + validUser.isOnline());
 		session.setAttribute("username", validUser.getUsername());
+		// username of logged-in user to an attribute 'username'
 		return new ResponseEntity<User>(validUser,HttpStatus.OK);
 		//response.data=validuser
 		//response.status=200
 	}
-		
+	
 	@RequestMapping(value="/logout",method=RequestMethod.PUT)
 	public ResponseEntity<?> logout(HttpSession session){
 		String username=(String)session.getAttribute("username");
@@ -105,8 +105,30 @@ public class UserController {
 		User user=userService.getUserByUsername(username);
 		return new ResponseEntity<User>(user,HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/updateuser",method=RequestMethod.PUT)
+	public ResponseEntity<?> updateUser(@RequestBody User user,HttpSession session)
+	{
+		String username=(String)session.getAttribute("username");
+		if(username==null) {
+			Error error=new Error(5,"Unauthorized access.. please login..");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+		
+		if(!userService.isUpdatedEmailValid(user.getEmail(), user.getUsername()) ) {
+			Error error = new Error(3,"Email address already exists.. please enter different email");
+			return new ResponseEntity<Error>(error,HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		try {
+		userService.update(user);
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+		}
+		catch(Exception e) {
+			Error error =new Error(4,"unable to update user deatils");
+			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+			
+		}
+	
+	}
 }
-
-
-
-

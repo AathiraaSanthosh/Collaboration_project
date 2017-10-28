@@ -4,75 +4,60 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-
 @Entity
-@Table
-public class BlogComment
-{
+@Table(name = "blogcomment")
+public class BlogComment {
 
 	@Id
-	private int ID;
-	
-	private int BlogID;
-	
-	private String Comment1;
-	
-	private int UserID;
-	
-	private String username;
-	
-	private Date createDate;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 
-	public int getID() {
-		return ID;
+	private String commentText;
+	@ManyToOne
+	private User commentedBy; // FK commented by_username
+	private Date commentedOn;
+
+	@ManyToOne
+	private BlogPost blogPost; // Fk blogpost_id
+
+	public int getId() {
+		return id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public int getBlogID() {
-		return BlogID;
+	public String getCommentText() {
+		return commentText;
 	}
 
-	public void setBlogID(int blogID) {
-		BlogID = blogID;
+	public void setCommentText(String commentText) {
+		this.commentText = commentText;
 	}
 
-	public String getComment1() {
-		return Comment1;
+	public User getCommentedBy() {
+		return commentedBy;
 	}
 
-	public void setComment1(String comment1) {
-		Comment1 = comment1;
+	public void setCommentedBy(User commentedBy) {
+		this.commentedBy = commentedBy;
 	}
 
-	public int getUserID() {
-		return UserID;
+	public Date getCommentedOn() {
+		return commentedOn;
 	}
 
-	public void setUserID(int userID) {
-		UserID = userID;
+	public void setCommentedOn(Date commentedOn) {
+		this.commentedOn = commentedOn;
 	}
 
-	public String getUsername() {
-		return username;
+	public BlogPost getBlogPost() {
+		return blogPost;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setBlogPost(BlogPost blogPost) {
+		this.blogPost = blogPost;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-	
-	
-	
-	
-	
 }

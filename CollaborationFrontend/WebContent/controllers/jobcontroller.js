@@ -4,6 +4,7 @@
 
 
 app.controller('JobController',function($scope,$location,JobService){
+	$scope.showJobDetails=false;
 	$scope.addJob=function(){
 		JobService.addJob($scope.job).then(function(response){
 			console.log(response.data)
@@ -27,6 +28,18 @@ app.controller('JobController',function($scope,$location,JobService){
 			
 		})
 	}
+	$scope.getJobDetails=function(jobId){
+		$scope.showJobDetails=true
+		JobService.getJobDetails(jobId).then(function(response){
+			$scope.job=response.data //job object results of the query - select * from job where id = jobid
+		},function(response){
+			console.log(response.data)
+			if(response.status==401)
+				{
+				$location.path('/login')
+				}
+		})
+	}
 	
 	function getAllJobs()
 	{
@@ -34,9 +47,12 @@ app.controller('JobController',function($scope,$location,JobService){
 		JobService.getAllJobs().then(function(response)
 				{
 			$scope.jobs=response.data
-		},function(response)
+		},function(response){
+			if(response.status==401)
+		
 		{
 			$location.path('/login')
+		}
 		})
 	}
 	

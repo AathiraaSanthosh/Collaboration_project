@@ -1,28 +1,31 @@
 package com.niit.collaborate.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name="userdetails")
+@Table(name = "userdetails")
 public class User {
-	
+
 	@Id
 	private String username;
-	
+
 	private String password;
-	
+
 	private String role;
-	
+
 	private String firstname;
-	
+
 	private String lastname;
-	
-	@Column(unique=true,nullable=false)
+
+	@Column(unique = true, nullable = false)
 	private String email;
-	
+
 	private String phonenumber;
-	
-	@Column(name="on_line")
+
+	@Column(name = "on_line")
 	private boolean online;
 
 	public String getUsername() {
@@ -88,11 +91,5 @@ public class User {
 	public void setOnline(boolean online) {
 		this.online = online;
 	}
-	
-	
-	
-	
-	
-	
-}
 
+}

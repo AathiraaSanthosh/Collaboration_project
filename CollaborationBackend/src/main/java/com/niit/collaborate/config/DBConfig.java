@@ -1,6 +1,5 @@
 package com.niit.collaborate.config;
 
-
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -14,27 +13,32 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.collaborate.model.BlogComment;
+import com.niit.collaborate.model.BlogPost;
+import com.niit.collaborate.model.Friend;
+import com.niit.collaborate.model.Job;
+import com.niit.collaborate.model.ProfilePicture;
 import com.niit.collaborate.model.User;
 
 @Configuration
-@ComponentScan("com.niit.collaborate.model")
 @EnableTransactionManagement
+@ComponentScan("com.niit.collaborate.model")
 public class DBConfig {
 
-	
 	@Bean
 	public SessionFactory sessionFactory() {
-		LocalSessionFactoryBuilder lsf= new LocalSessionFactoryBuilder(getDataSource());
-		
+		LocalSessionFactoryBuilder lsf = new LocalSessionFactoryBuilder(getDataSource());
+
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		lsf.addProperties(hibernateProperties);
-		Class classes[]=new Class[] {User.class};
+		Class classes[] = new Class[] { User.class, BlogPost.class, Job.class, BlogComment.class, ProfilePicture.class,
+				Friend.class };
 		return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
-	
+
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -44,11 +48,10 @@ public class DBConfig {
 		dataSource.setPassword("HR");
 		return dataSource;
 	}
-	
-	
+
 	@Bean
 	public HibernateTransactionManager hibTransManagement() {
 		return new HibernateTransactionManager(sessionFactory());
 	}
-	
+
 }

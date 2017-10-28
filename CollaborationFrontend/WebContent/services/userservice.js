@@ -3,7 +3,7 @@
  **/
 app.factory('UserService',function($http){
 	var userService={}
-	var BASE_URL = "http://localhost:8089/CollaborationMiddleware"
+	var BASE_URL = "http://localhost:9087/CollaborationMiddleware"
 	
 	userService.registerUser=function(user) {
 		
@@ -21,5 +21,8 @@ app.factory('UserService',function($http){
 	userService.getUser=function(){
 		return $http.get(BASE_URL + "/getuser")
 	}	
+	userService.updateUser=function(user){
+		return $http.put(BASE_URL + "/updateuser",user)
+	}
 	return userService;
 })

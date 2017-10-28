@@ -20,8 +20,12 @@ public class JobServiceImpl implements JobService {
 	}
 
 	public List<Job> getAllJobs() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return jobDAO.getAllJobs();
+	}
+
+	public Job getJob(int jobId) {
+		return jobDAO.getJob(jobId);
 	}
 
 }

@@ -4,6 +4,8 @@ import com.niit.collaborate.model.User;
 
 public interface UserDAO {
 
+	boolean registerUser(User user);
+
 	boolean isUsernameValid(String username);
 
 	boolean isEmailValid(String email);
@@ -13,7 +15,6 @@ public interface UserDAO {
 	void update(User user);
 	
 	User getUserByUsername(String username);
-
-	boolean registerUser(User user);
 	
+	 boolean isUpdatedEmailValid(String email,String username);
 }

@@ -21,18 +21,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
     </dependency>
-    
-     <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-webmvc</artifactId>
-    	<version>4.3.5.RELEASE</version>
-    </dependency>
-    
-    <dependency>
-    <groupId>com.niit.collaborate</groupId>
-	<artifactId>CollaborationBackend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
+   
    
     
   </dependencies>

@@ -64,13 +64,21 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     	<artifactId>spring-context</artifactId>
     	<version>4.3.5.RELEASE</version>
     </dependency>
-    
+    <!-- 
 <dependency>
 	<groupId>org.hibernate.javax.persistence</groupId>
 	<artifactId>hibernate-jpa-2.1-api</artifactId>
 	<version>1.0.0.Final</version>
 </dependency>
-
+ -->
+ 
+ 
+ <dependency>
+    <groupId>org.hibernate.javax.persistence</groupId>
+    <artifactId>hibernate-jpa-2.1-api</artifactId>
+    <version>1.0.0.Final</version>
+</dependency>
+ 
      <dependency>
     	<groupId>com.fasterxml.jackson.core</groupId>
     	<artifactId>jackson-databind</artifactId>
