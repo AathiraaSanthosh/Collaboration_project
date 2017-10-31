@@ -11,7 +11,7 @@ import com.niit.collaborate.model.ProfilePicture;
 
 @Repository
 @Transactional
-public class ProfilePicDAOImpl implements ProfilePictureDAO {
+public class ProfilePicDAOImpl implements ProfilePicDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;

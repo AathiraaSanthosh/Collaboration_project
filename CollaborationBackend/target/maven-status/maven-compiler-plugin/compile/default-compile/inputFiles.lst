@@ -3,6 +3,7 @@ C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\n
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\config\WebInitializer.java
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\config\DBConfig.java
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\model\Friend.java
+C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\config\WebSocketConfiguration.java
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\dao\FriendDAO.java
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\App.java
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\model\ProfilePicture.java
@@ -29,4 +30,5 @@ C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\n
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\config\WebResolver.java
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\model\BlogComment.java
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\service\BlogPostService.java
+C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\model\Chat.java
 C:\Users\User\git\Collaboration_project\CollaborationBackend\src\main\java\com\niit\collaborate\service\JobServiceImpl.java

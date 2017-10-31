@@ -21,5 +21,8 @@ public class FriendServiceImpl implements FriendService {
 		
 		friendDAO.friendRequest(friend);
 	}
+	public List<Friend> pendingRequests(String toId) {
+		return friendDAO.pendingRequests(toId);
+	}
 
 }
