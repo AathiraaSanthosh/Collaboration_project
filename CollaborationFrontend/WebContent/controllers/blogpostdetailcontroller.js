@@ -11,7 +11,7 @@ app.controller('BlogPostDetailController', function($scope, $location,
 
 	BlogPostService.getBlogPostById(id).then(function(response) {
 		$scope.blogPost = response.data // Blogpost [select * from blogpost
-										// where id =?]
+		// where id =?]
 	}, function(response) {
 		if (response.status == 401)
 			$location.path('/login')
@@ -37,13 +37,22 @@ app.controller('BlogPostDetailController', function($scope, $location,
 				}, function(response) {
 				})
 	}
+	$scope.updateBlogPost = function() {
+		console.log('update Blog')
+		BlogPostService.updateBlogPost($scope.blogPost).then(
+				function(response) {
+				}, function(response) {
+				})
+				$location.path('/getblogs')
+	}
+	
 	$scope.showRejectionTxt = function(val) {
 		$scope.isRejected = val
 	}
 	$scope.addComment = function() {
 		console.log($scope.blogComment) // comment text property in blogcomment
 		$scope.blogComment.blogPost = $scope.blogPost // blogpost property in
-														// blogComment
+		// blogComment
 		console.log($scope.blogComment)
 		BlogPostService.addComment($scope.blogComment).then(function(response) {
 			console.log(response.data);
@@ -58,12 +67,20 @@ app.controller('BlogPostDetailController', function($scope, $location,
 	}
 
 	function getBlogComments() { // select blogComment for particular
-									// blogPost
+		// blogPost
 		BlogPostService.getBlogComment(id).then(function(response) {
 		}, function(response) {
 			if (response.status = 401)
 				$location.path('/login')
 		})
 	}
-	getBlogComments()
+
+	function getNotification() { // select blogComment for particular
+		// blogPost
+		BlogPostService.getNotification().then(function(response) {
+		}, function(response) {
+			if (response.status = 401)
+	 			$location.path('/login')
+		})
+	}
 })

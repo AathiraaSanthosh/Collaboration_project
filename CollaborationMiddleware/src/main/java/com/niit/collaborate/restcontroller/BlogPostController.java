@@ -124,4 +124,15 @@ public class BlogPostController {
 		return new ResponseEntity<List<BlogComment>>(blogComments, HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "/getnotification", method = RequestMethod.GET)
+	public ResponseEntity<?> getNotification(HttpSession session) {
+		String username = (String) session.getAttribute("username");
+		if (username == null) {
+			Error error = new Error(5, "Unauthorized access..");
+			return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED);// unauthorized
+		}
+		List<BlogPost> blogPostNotification = blogPostService.getNotification(username);
+		return new ResponseEntity<List<BlogPost>>(blogPostNotification, HttpStatus.OK);
+	}
+
 }

@@ -41,5 +41,7 @@ public class BlogPostServiceImpl implements BlogPostService {
 	public List<BlogComment> getBlogComments(int blogPostId) {
 		return  blogPostDAO.getBlogComments(blogPostId);
 	}
-
+	public List<BlogPost> getNotification(String username) {
+		return blogPostDAO.getNotification(username);
+	}
 }

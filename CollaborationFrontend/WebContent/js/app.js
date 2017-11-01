@@ -59,7 +59,10 @@ app.config(function($routeProvider) {
 			templateUrl:'views/chat.html',
 			controller:'ChatCtrl'
 		})
-
+        .when('/home',{
+            templateUrl:'views/home.html',
+            controller:'HomeController'
+        })
 		.otherwise({
 			templateUrl:'views/home.html'
 		})

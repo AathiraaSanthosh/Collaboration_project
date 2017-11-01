@@ -26,15 +26,12 @@ public class BlogPost {
 	@ManyToOne
 	private User postedBy; // postedbt_username->colm name fk references
 							// username in user table
-
 	private Date postedOn;
-
-	private boolean approved;
-
-	private String rejectionReason;
-
-	private int likes;
-
+    private boolean approved;
+    private String rejectionReason;
+    private int likes;
+    private boolean viewed;
+    
 	public int getLikes() {
 		return likes;
 	}
@@ -97,6 +94,14 @@ public class BlogPost {
 
 	public void setRejectionReason(String rejectionReason) {
 		this.rejectionReason = rejectionReason;
+	}
+
+	public boolean isViewed() {
+		return viewed;
+	}
+
+	public void setViewed(boolean viewed) {
+		this.viewed = viewed;
 	}
 
 }

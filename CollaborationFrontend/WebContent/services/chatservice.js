@@ -14,7 +14,7 @@ app.filter('reverse', function() {
 
 	app.factory('socket', function($rootScope) {
 	  alert('app factory')
-	    var socket = new SockJS('/collaboration_middleware/portfolio');
+	    var socket = new SockJS('/CollaborationMiddleware/portfolio');
 	    var stompClient = Stomp.over(socket);
 	    stompClient.connect('', '', function(frame) {
 	      $rootScope.$broadcast('sockConnected', frame);
