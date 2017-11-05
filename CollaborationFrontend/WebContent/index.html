@@ -2,12 +2,13 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>My Website</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"/>
 	<link href="css/sample.css" rel="stylesheet" />
+	<link rel="icon" type="image/png" href="static/images/favicon.png"/>
 </head>
 <body ng-app="app">
 <header>
@@ -22,7 +23,7 @@
 		</button>
 	
 	<div class="navbar-header">
-		<a class="navbar-brand" href="/">My Website</a>
+		<a class="navbar-brand" href="/CollaborationFrontend/">My Website</a>
 	</div>
 	
 	<div class="collapse navbar-collapse" id="collapse-example">
@@ -60,7 +61,7 @@
 			</span>
 			</a></li>
             </ul></li>
-			<li><a href="#/uploadprofilepic"><img src="http://localhost:9087/CollaborationMiddleware/getimage/{{currentUser.username}}" height="40px" width="40px" alt="upload profile pic"></a></li>
+			<li><a href="#/uploadprofilepic" ng-show="currentUser.online"><img src="http://localhost:9087/CollaborationMiddleware/getimage/{{currentUser.username}}" height="40px" width="40px" alt="upload profile pic"></a></li>
 			<li><a href="#" ng-show="currentUser.online">Welcome {{currentUser.firstname}} {{currentUser.lastname}} </a></li>
 			<li><a href="" ng-click="logout()" ng-show="currentUser.online">Logout</a></li>
 			<li><a href="#/chat" ng-show="currentUser.username">chat</a></li>
